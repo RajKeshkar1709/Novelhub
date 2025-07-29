@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Novels Hub</title>
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #d7d2cc, #304352);
+  min-height: 100vh;
+  padding: 0 20px;
+}
+
+/* Title */
+h1 {
+  text-align: center;
+  margin: 30px 0 10px;
+  font-size: 2.8rem;
+  color: #333;
+  position: relative;
+}
+
+h1::after {
+  content: "Your personal library management system";
+  display: block;
+  font-size: 1rem;
+  color: black;
+  margin-top: 8px;
+  font-weight: 400;
+}
+
+/* Controls Section */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin: 20px 0 30px;
+}
+
+.controls input,
+.controls select,
+.controls button {
+  padding: 12px 16px;
+  font-size: 1rem;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  transition: 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.controls input {
+  width: 240px;
+}
+
+.controls select {
+  background-color: #fff;
+  color: #333;
+}
+
+.controls button {
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.controls button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(to right, #2575fc, #6a11cb);
+}
+
+/* Pagination (top only) */
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.pagination li {
+  padding: 10px 18px;
+  background: #e0e0e0;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.pagination li:hover {
+  background-color: #6a11cb;
+  color: white;
+}
+
+/* Cards container */
+#container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+  padding: 30px;
+  max-width: 1200px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Novel Cards */
+.novel-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+  transition: 0.3s;
+  position: relative;
+}
+
+.novel-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.novel-card h2 {
+  color: #6a11cb;
+  margin-bottom: 8px;
+  font-size: 1.4rem;
+}
+
+.novel-card h3,
+.novel-card h4,
+.novel-card h5 {
+  margin: 6px 0;
+  color: #444;
+}
+
+/* Buttons in cards */
+.novel-card button {
+  margin-top: 12px;
+  margin-right: 10px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.novel-card button:first-of-type {
+  background: #f44336;
+  color: white;
+}
+
+.novel-card button:last-of-type {
+  background: #03a9f4;
+  color: white;
+}
+
+.novel-card button:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .controls {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .controls input,
+  .controls select,
+  .controls button {
+    width: 90%;
+  }
+
+  #container {
+    padding: 20px;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <h1>Novels Hub</h1>
+
+  <!-- Controls -->
+  <div class="controls">
+    <input type="text" placeholder="Search Title..." oninput="searchTitle()" id="searchTitle" />
+    <select id="selectFromGenre" onchange="selectFromGenre()">
+      <option value="">Select Genre</option>
+      <option value="All">All</option>
+      <option value="Adventure">Adventure</option>
+      <option value="Romance">Romance</option>
+      <option value="Fantasy">Fantasy</option>
+      <option value="Mystery">Mystery</option>
+      <option value="Thriller">Thriller</option>
+    </select>
+    <select id="sortByRelease" onchange="sortByRelease()">
+      <option value="">Sort</option>
+      <option value="New to Old">New to Old</option>
+      <option value="Old to New">Old to New</option>
+    </select>
+    <button onclick="createNovels()">Create Novel</button>
+  </div>
+
+  
+  <ul id="pagination-top" class="pagination"></ul>
+
+  
+  <div id="container"></div>
+
+  <script>
+    
+    let allNovels = []
+    let currentPage = 1
+    let limit = 8
+
+    async function fetchNovels() {
+      const res = await fetch("https://novels-15ab0-default-rtdb.europe-west1.firebasedatabase.app/.json")
+      const data = await res.json()
+      allNovels = Object.entries(data)
+      getPage()
+      showNovels(allNovels)
+    }
+
+    fetchNovels()
+
+    function getPage() {
+      const top = document.getElementById("pagination-top")
+      top.innerHTML = ""
+
+      let totalPages = Math.ceil(allNovels.length / limit)
+      for (let i = 1; i <= totalPages; i++) {
+        const li = document.createElement("li")
+        li.innerText = i
+        if (i === currentPage) {
+          li.style.background = "#6a11cb"
+          li.style.color = "white"
+        }
+        li.addEventListener("click", () => {
+          currentPage = i
+          showNovels(allNovels)
+          getPage()
+        })
+        top.appendChild(li)
+      }
+    }
+
+    function showNovels(data) {
+      let start = (currentPage - 1) * limit
+      let end = start + limit
+      let paginated = data.slice(start, end)
+
+      const container = document.getElementById("container")
+      container.innerHTML = ""
+      paginated.forEach(([id, novel]) => {
+        const div = document.createElement("div")
+        div.className = "novel-card"
+        div.innerHTML = `
+          <h2>${novel.title}</h2>
+          <h3>Author: ${novel.author}</h3>
+          <h4>Genre: ${novel.genre}</h4>
+          <h4>Price: $${novel.price}</h4>
+          <h5>Release Year: ${novel.release_year}</h5>
+          <button onclick="deleteNovels('${id}')">Delete</button>
+          <button onclick="editNovel('${id}')">Edit</button>
+        `
+        container.appendChild(div)
+      })
+    }
+
+    function deleteNovels(id) {
+      fetch(`https://novels-15ab0-default-rtdb.europe-west1.firebasedatabase.app/${id}.json`, {
+        method: "DELETE"
+      }).then(() => {
+        alert("Novel Deleted Successfully")
+        fetchNovels()
+      })
+    }
+
+    function createNovels() {
+      window.location.href = "createNovel.html"
+    }
+
+    function editNovel(id) {
+      window.location.href = `editNovel.html?id=${id}`
+    }
+
+    function searchTitle() {
+      const input = document.getElementById("searchTitle").value.toLowerCase()
+      const filtered = allNovels.filter(([_, novel]) => novel.title.toLowerCase().includes(input))
+      currentPage = 1
+      showNovels(filtered)
+      getPage()
+    }
+
+    function selectFromGenre() {
+      const genre = document.getElementById("selectFromGenre").value
+      const filtered = allNovels.filter(([_, novel]) => {
+        if (genre === "All" || genre === "") return true
+        return novel.genre === genre
+      })
+      currentPage = 1
+      showNovels(filtered)
+      getPage()
+    }
+
+    function sortByRelease() {
+      const sortValue = document.getElementById("sortByRelease").value
+      if (sortValue === "New to Old") {
+        allNovels.sort((a, b) => b[1].release_year - a[1].release_year)
+      } else if (sortValue === "Old to New") {
+        allNovels.sort((a, b) => a[1].release_year - b[1].release_year)
+      }
+      currentPage = 1
+      showNovels(allNovels)
+      getPage()
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,422 @@
+[
+  {
+    "title": "Shadows of the Empire",
+    "author": "Ava Johnson",
+    "price": "$20.75",
+    "release_year": 2018,
+    "genre": "Mystery"
+  },
+  {
+    "title": "Echoes of the Forgotten",
+    "author": "Lucas Hall",
+    "price": "$15.3",
+    "release_year": 2018,
+    "genre": "Romance"
+  },
+  {
+    "title": "The Crystal Labyrinth",
+    "author": "Ava Walker",
+    "price": "$22.15",
+    "release_year": 2023,
+    "genre": "Mystery"
+  },
+  {
+    "title": "Winds of Tomorrow",
+    "author": "Ella Taylor",
+    "price": "$18.14",
+    "release_year": 2020,
+    "genre": "Mystery"
+  },
+  {
+    "title": "The Last Ember",
+    "author": "Ava Martin",
+    "price": "$21.26",
+    "release_year": 2017,
+    "genre": "Thriller"
+  },
+  {
+    "title": "Tales from the Beyond",
+    "author": "Liam Taylor",
+    "price": "$21.95",
+    "release_year": 2022,
+    "genre": "Mystery"
+  },
+  {
+    "title": "Voices in the Fog",
+    "author": "Ava Allen",
+    "price": "$19.85",
+    "release_year": 2017,
+    "genre": "Thriller"
+  },
+  {
+    "title": "The Cursed Compass",
+    "author": "Ava Allen",
+    "price": "$21.52",
+    "release_year": 2020,
+    "genre": "Fantasy"
+  },
+  {
+    "title": "Journey to the Edge",
+    "author": "Logan Clark",
+    "price": "$19.29",
+    "release_year": 2023,
+    "genre": "Romance"
+  },
+  {
+    "title": "The Hidden Relic",
+    "author": "Mason Thomas",
+    "price": "$18.89",
+    "release_year": 2018,
+    "genre": "Adventure"
+  },
+  {
+    "title": "Ashes of a New Dawn",
+    "author": "Ella Johnson",
+    "price": "$15.03",
+    "release_year": 2019,
+    "genre": "Fantasy"
+  },
+  {
+    "title": "Whispers Through Time",
+    "author": "Lucas Jackson",
+    "price": "$24.8",
+    "release_year": 2017,
+    "genre": "Adventure"
+  },
+  {
+    "title": "The Stolen Chronicle",
+    "author": "Harper Harris",
+    "price": "$15.8",
+    "release_year": 2023,
+    "genre": "Romance"
+  },
+  {
+    "title": "Moonlight Masquerade",
+    "author": "Emma White",
+    "price": "$18.86",
+    "release_year": 2017,
+    "genre": "Romance"
+  },
+  {
+    "title": "The Seventh Gate",
+    "author": "Ethan Hall",
+    "price": "$17.63",
+    "release_year": 2018,
+    "genre": "Fantasy"
+  },
+  {
+    "title": "Enigma of the Isles",
+    "author": "Ava Anderson",
+    "price": "$17.37",
+    "release_year": 2023,
+    "genre": "Adventure"
+  },
+  {
+    "title": "Secrets of the Hollow",
+    "author": "Harper Martin",
+    "price": "$16.33",
+    "release_year": 2020,
+    "genre": "Adventure"
+  },
+  {
+    "title": "The Final Requiem",
+    "author": "Mason Johnson",
+    "price": "$24.61",
+    "release_year": 2017,
+    "genre": "Adventure"
+  },
+  {
+    "title": "Rise of the Iron Star",
+    "author": "Ella Brown",
+    "price": "$22.34",
+    "release_year": 2021,
+    "genre": "Adventure"
+  },
+  {
+    "title": "The Lost Cartographer",
+    "author": "Amelia Harris",
+    "price": "$21.17",
+    "release_year": 2018,
+    "genre": "Mystery"
+  },
+  {
+    "title": "Beneath Crimson Skies",
+    "author": "Mason Thomas",
+    "price": "$18.14",
+    "release_year": 2018,
+    "genre": "Fantasy"
+  },
+  {
+    "title": "The Widow\u2019s Letter",
+    "author": "Amelia Thomas",
+    "price": "$21.36",
+    "release_year": 2020,
+    "genre": "Thriller"
+  },
+  {
+    "title": "Of Myths and Men",
+    "author": "Ava Johnson",
+    "price": "$14.06",
+    "release_year": 2018,
+    "genre": "Fantasy"
+  },
+  {
+    "title": "When Stars Collide",
+    "author": "Ella Martin",
+    "price": "$23.74",
+    "release_year": 2017,
+    "genre": "Adventure"
+  },
+  {
+    "title": "Coven of Ash",
+    "author": "Ava Anderson",
+    "price": "$14.48",
+    "release_year": 2022,
+    "genre": "Romance"
+  },
+  {
+    "title": "The Golden Testament",
+    "author": "Harper White",
+    "price": "$17.04",
+    "release_year": 2017,
+    "genre": "Fantasy"
+  },
+  {
+    "title": "The Librarian's Secret",
+    "author": "Ethan Jackson",
+    "price": "$16.41",
+    "release_year": 2021,
+    "genre": "Mystery"
+  },
+  {
+    "title": "Tides of the Abyss",
+    "author": "Sophia Taylor",
+    "price": "$18.09",
+    "release_year": 2018,
+    "genre": "Adventure"
+  },
+  {
+    "title": "The Astral Nomad",
+    "author": "Olivia Harris",
+    "price": "$16.74",
+    "release_year": 2020,
+    "genre": "Fantasy"
+  },
+  {
+    "title": "The Forgotten Oracle",
+    "author": "Lucas Hall",
+    "price": "$20.42",
+    "release_year": 2023,
+    "genre": "Thriller"
+  },
+  {
+    "title": "Between Two Worlds",
+    "author": "Ava Clark",
+    "price": "$21.34",
+    "release_year": 2019,
+    "genre": "Thriller"
+  },
+  {
+    "title": "Labyrinth of Smoke",
+    "author": "Ethan Taylor",
+    "price": "$21.09",
+    "release_year": 2018,
+    "genre": "Adventure"
+  },
+  {
+    "title": "Garden of Midnight",
+    "author": "Noah Anderson",
+    "price": "$15.86",
+    "release_year": 2018,
+    "genre": "Thriller"
+  },
+  {
+    "title": "The Poet and the Blade",
+    "author": "Ethan Clark",
+    "price": "$14.12",
+    "release_year": 2021,
+    "genre": "Adventure"
+  },
+  {
+    "title": "Legacy of the Chosen",
+    "author": "Ethan Taylor",
+    "price": "$20.05",
+    "release_year": 2019,
+    "genre": "Fantasy"
+  },
+  {
+    "title": "City of Falling Rain",
+    "author": "Amelia Taylor",
+    "price": "$15.12",
+    "release_year": 2020,
+    "genre": "Adventure"
+  },
+  {
+    "title": "The Phoenix Paradox",
+    "author": "Amelia Jackson",
+    "price": "$23.33",
+    "release_year": 2018,
+    "genre": "Fantasy"
+  },
+  {
+    "title": "A Song for the Sea",
+    "author": "Harper Hall",
+    "price": "$21.67",
+    "release_year": 2018,
+    "genre": "Adventure"
+  },
+  {
+    "title": "The Eternal Game",
+    "author": "Ava Walker",
+    "price": "$15.91",
+    "release_year": 2019,
+    "genre": "Adventure"
+  },
+  {
+    "title": "Thorns and Thrones",
+    "author": "Emma Harris",
+    "price": "$17.35",
+    "release_year": 2019,
+    "genre": "Thriller"
+  },
+  {
+    "title": "The Time Weaver",
+    "author": "Lucas Walker",
+    "price": "$19.23",
+    "release_year": 2022,
+    "genre": "Thriller"
+  },
+  {
+    "title": "Chronicles of the Rift",
+    "author": "Harper Scott",
+    "price": "$19.89",
+    "release_year": 2023,
+    "genre": "Thriller"
+  },
+  {
+    "title": "Inkheart's Promise",
+    "author": "James Allen",
+    "price": "$18.24",
+    "release_year": 2018,
+    "genre": "Thriller"
+  },
+  {
+    "title": "The Bleeding Hour",
+    "author": "Amelia Thomas",
+    "price": "$24.18",
+    "release_year": 2023,
+    "genre": "Romance"
+  },
+  {
+    "title": "Call of the Drowned",
+    "author": "Olivia Martin",
+    "price": "$20.37",
+    "release_year": 2019,
+    "genre": "Fantasy"
+  },
+  {
+    "title": "The Celestial Trial",
+    "author": "Logan Scott",
+    "price": "$16.95",
+    "release_year": 2019,
+    "genre": "Mystery"
+  },
+  {
+    "title": "The Paper Armada",
+    "author": "Ethan Thomas",
+    "price": "$19.28",
+    "release_year": 2020,
+    "genre": "Mystery"
+  },
+  {
+    "title": "Blood on the Quill",
+    "author": "Lucas Anderson",
+    "price": "$14.85",
+    "release_year": 2022,
+    "genre": "Romance"
+  },
+  {
+    "title": "The Hollow Mirror",
+    "author": "Sophia Jackson",
+    "price": "$23.2",
+    "release_year": 2018,
+    "genre": "Fantasy"
+  },
+  {
+    "title": "Crown of Whispers",
+    "author": "Noah Jackson",
+    "price": "$17.31",
+    "release_year": 2020,
+    "genre": "Fantasy"
+  },
+  {
+    "title": "The Clockwork Heir",
+    "author": "Mason Jackson",
+    "price": "$19.1",
+    "release_year": 2020,
+    "genre": "Adventure"
+  },
+  {
+    "title": "Symphony of the Damned",
+    "author": "Isabella White",
+    "price": "$19.86",
+    "release_year": 2019,
+    "genre": "Romance"
+  },
+  {
+    "title": "Flames of Solitude",
+    "author": "Olivia Thomas",
+    "price": "$23.64",
+    "release_year": 2020,
+    "genre": "Fantasy"
+  },
+  {
+    "title": "The Eclipsed Throne",
+    "author": "Mia Allen",
+    "price": "$20.75",
+    "release_year": 2020,
+    "genre": "Thriller"
+  },
+  {
+    "title": "The Lantern and the Hawk",
+    "author": "Isabella Harris",
+    "price": "$16.58",
+    "release_year": 2022,
+    "genre": "Fantasy"
+  },
+  {
+    "title": "Grave of Empires",
+    "author": "Logan Harris",
+    "price": "$24.37",
+    "release_year": 2021,
+    "genre": "Fantasy"
+  },
+  {
+    "title": "The Dream Cartel",
+    "author": "Ethan Taylor",
+    "price": "$23.24",
+    "release_year": 2021,
+    "genre": "Mystery"
+  },
+  {
+    "title": "The Icebound Pact",
+    "author": "Ella Anderson",
+    "price": "$17.31",
+    "release_year": 2020,
+    "genre": "Fantasy"
+  },
+  {
+    "title": "Twilight's End",
+    "author": "Mia Anderson",
+    "price": "$22.78",
+    "release_year": 2018,
+    "genre": "Adventure"
+  },
+  {
+    "title": "The Alchemist\u2019s Betrayal",
+    "author": "Harper Harris",
+    "price": "$14.49",
+    "release_year": 2020,
+    "genre": "Adventure"
+  }
+]

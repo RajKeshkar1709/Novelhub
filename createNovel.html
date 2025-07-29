@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Novel</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #d7d2cc, #304352); 
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2.2rem;
+      color: #fff;
+    }
+
+    .form-container {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .form-container input {
+      width: 100%;
+      padding: 12px 16px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 1rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .form-container button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 20px;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .form-container button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(to right, #2575fc, #6a11cb);
+    }
+  </style>
+</head>
+<body>
+  <h1>Add New Novel</h1>
+  <div class="form-container">
+    <input type="text" placeholder="Enter Title..." id="title">
+    <input type="text" placeholder="Enter Author..." id="author">
+    <input type="text" placeholder="Enter Genre..." id="genre">
+    <input type="number" placeholder="Enter Price..." id="price">
+    <input type="number" placeholder="Enter Release Year..." id="release_year">
+    <button onclick="createNovels()">Upload Novel</button>
+  </div>
+
+  <script>
+    function createNovels() {
+      const title = document.querySelector("#title").value.trim();
+      const author = document.querySelector("#author").value.trim();
+      const genre = document.querySelector("#genre").value.trim();
+      const price = document.querySelector("#price").value.trim();
+      const releaseYear = document.querySelector("#release_year").value.trim();
+
+      if (!title || !author || !genre || !price || !releaseYear) {
+        alert("❗ Please fill in all the fields before uploading.");
+        return;
+      }
+
+      const novelData = {
+        title,
+        author,
+        genre,
+        price,
+        release_year: releaseYear
+      };
+
+      fetch("https://novels-15ab0-default-rtdb.europe-west1.firebasedatabase.app/.json", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(novelData)
+      })
+      .then(res => res.json())
+      .then(() => {
+        alert("✅ Novel uploaded successfully!");
+        window.location.href = "main.html"; // Redirect after upload
+      })
+      .catch(() => {
+        alert("❌ Failed to upload. Please try again.");
+      });
+    }
+  </script>
+</body>
+</html>

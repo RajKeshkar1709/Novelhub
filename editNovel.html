@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Edit Novel</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background:linear-gradient(to right, #d7d2cc, #304352);
+      color: #333;
+      min-height: 100vh;
+      margin: 0;
+      display: flex; 
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: white;
+      font-size: 2rem;
+    }
+
+    .form-container {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .form-container input {
+      display: block;
+      width: 100%;
+      padding: 12px 15px;
+      margin: 12px 0;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .form-container button {
+      width: 100%;
+      padding: 14px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: white;
+      cursor: pointer;
+      transition: 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .form-container button:hover {
+      transform: scale(1.03);
+      background: linear-gradient(to right, #2575fc, #6a11cb);
+    }
+
+    @media (max-width: 600px) {
+      .form-container {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Edit Novel</h1>
+
+  <div class="form-container">
+    <input type="text" placeholder="Enter Title.." id="title" />
+    <input type="text" placeholder="Enter Author" id="author" />
+    <input type="text" placeholder="Enter Genre" id="genre" />
+    <input type="number" placeholder="Enter Price.." id="price" />
+    <input type="number" placeholder="Enter Release Year" id="release_year" />
+    <button onclick="editNovels()">Edit Novel</button>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+    let existingData = {};
+
+    
+    fetch(`https://novels-15ab0-default-rtdb.europe-west1.firebasedatabase.app/${id}.json`)
+      .then(res => res.json())
+      .then(data => {
+        existingData = data;
+        document.getElementById("title").value = data.title || "";
+        document.getElementById("author").value = data.author || "";
+        document.getElementById("genre").value = data.genre || "";
+        document.getElementById("price").value = data.price || "";
+        document.getElementById("release_year").value = data.release_year || "";
+      })
+      .catch(err => {
+        console.error("Failed to fetch novel:", err);
+        alert("Error loading novel data.");
+      });
+
+    function editNovels() {
+      const Title = document.getElementById("title").value.trim();
+      const Author = document.getElementById("author").value.trim();
+      const Genre = document.getElementById("genre").value.trim();
+      const Price = document.getElementById("price").value.trim();
+      const Release_Year = document.getElementById("release_year").value.trim();
+
+      const updatedData = {
+        title: Title || existingData.title,
+        author: Author || existingData.author,
+        genre: Genre || existingData.genre,
+        price: Price || existingData.price,
+        release_year: Release_Year || existingData.release_year
+      };
+
+      fetch(`https://novels-15ab0-default-rtdb.europe-west1.firebasedatabase.app/${id}.json`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(updatedData)
+      })
+      .then(res => res.json())
+      .then(() => {
+        alert("Novel edited successfully");
+        window.location.href = "main.html";
+      })
+      .catch(err => {
+        console.error("Error updating novel:", err);
+        alert("Failed to update novel.");
+      });
+    }
+  </script>
+
+</body>
+</html>
